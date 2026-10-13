@@ -1,0 +1,11 @@
+name: Feature request / 功能建议
+description: Describe a concrete review workflow the toolkit should support.
+body:
+  - type: textarea
+    attributes:
+      label: Use case and outcome / 场景与目标
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Current limitation and possible approach / 当前限制与思路

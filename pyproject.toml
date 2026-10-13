@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tennis-video-analysis-skill"
+version = "0.1.0"
+description = "Continuous-frame tennis review and offline HTML coaching reports for agent skills"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{name = "YangGuanyuhan"}]
+dependencies = ["Pillow>=10,<13", "markdown-it-py>=3,<5"]
+classifiers = ["Programming Language :: Python :: 3", "Operating System :: OS Independent"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "build>=1,<2", "PyYAML>=6,<7"]
+
+[project.scripts]
+tennis-analysis = "tennis_analysis.cli:main"
+
+[project.urls]
+Repository = "https://github.com/YangGuanyuhan/tennis-video-analysis-skill"
+Issues = "https://github.com/YangGuanyuhan/tennis-video-analysis-skill/issues"
+
+[tool.setuptools]
+package-dir = {"" = "skills/tennis-video-analysis/scripts"}
+
+[tool.setuptools.packages.find]
+where = ["skills/tennis-video-analysis/scripts"]
+include = ["tennis_analysis*"]
+
+[tool.setuptools.package-data]
+tennis_analysis = ["_assets/*.html", "_assets/*.css", "_assets/*.js"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["skills/tennis-video-analysis/scripts"]

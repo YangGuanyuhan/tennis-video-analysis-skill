@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tennis Video Analysis"
+  short_description: "Review continuous tennis strokes with timed frame evidence"
+  default_prompt: "Use $tennis-video-analysis to review my tennis video and create an evidence-based HTML coaching report with continuous frame comparisons."

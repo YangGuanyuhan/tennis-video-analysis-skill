@@ -1,0 +1,13 @@
+This project's code, documentation and programmatically generated demonstration
+assets are distributed under the MIT License in LICENSE.
+
+External dependencies (not bundled):
+- FFmpeg/ffprobe: licensing depends on the installed build; see https://ffmpeg.org/legal.html.
+- Pillow: see https://github.com/python-pillow/Pillow/blob/main/LICENSE.
+- markdown-it-py: see https://github.com/executablebooks/markdown-it-py/blob/master/LICENSE.
+
+Primary coaching references are linked from references/coaching-review.md.
+USTA and LTA instructional content is not copied or relicensed by this project.
+No endorsement by these organizations is implied.
+
+Real player footage and personal analysis reports are not part of this repository.

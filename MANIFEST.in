@@ -1,0 +1,9 @@
+include README.zh-CN.md LICENSE NOTICE CHANGELOG.md CONTRIBUTING.md SECURITY.md
+recursive-include skills/tennis-video-analysis *.md *.yaml *.py *.html *.css *.js
+recursive-include tools *.py
+recursive-include docs *.md *.png
+include examples/plan.json
+recursive-include examples/demo *.html *.md *.json *.csv *.mp4 *.jpg
+global-exclude *.pyc
+prune output
+prune private

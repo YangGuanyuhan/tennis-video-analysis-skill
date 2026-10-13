@@ -1,0 +1,207 @@
+{
+  "version": 1,
+  "title": "Tennis Video Analysis · Synthetic Demo",
+  "language": "en",
+  "profile": {},
+  "media": {
+    "name": "synthetic.mp4",
+    "duration": 4.0,
+    "width": 384,
+    "height": 216,
+    "codec": "h264",
+    "nominal_fps": 12.0,
+    "average_fps": 12.0,
+    "rotation": 0,
+    "pixel_format": "yuv420p",
+    "audio": [
+      {
+        "codec": "aac",
+        "sample_rate": "48000",
+        "channels": 1
+      }
+    ]
+  },
+  "cut_check": "checked",
+  "continuous_segments": [
+    {
+      "id": "demo",
+      "start": 0,
+      "end": 4
+    }
+  ],
+  "windows": [
+    {
+      "id": "D01",
+      "start": 0.35,
+      "end": 1.7,
+      "contact_time": 1.0,
+      "kind": "Stationary illustration",
+      "observation": "Generated figure near a fixed location; illustrative contact time, not a measured hit.",
+      "crop": [
+        0,
+        0,
+        384,
+        216
+      ],
+      "segment": "demo",
+      "frames": [
+        {
+          "time": 0.416650391,
+          "src": "D01/frames/00001.jpg"
+        },
+        {
+          "time": 0.499983724,
+          "src": "D01/frames/00002.jpg"
+        },
+        {
+          "time": 0.583317057,
+          "src": "D01/frames/00003.jpg"
+        },
+        {
+          "time": 0.666650391,
+          "src": "D01/frames/00004.jpg"
+        },
+        {
+          "time": 0.749983724,
+          "src": "D01/frames/00005.jpg"
+        },
+        {
+          "time": 0.833317057,
+          "src": "D01/frames/00006.jpg"
+        },
+        {
+          "time": 0.916650391,
+          "src": "D01/frames/00007.jpg"
+        },
+        {
+          "time": 0.999983724,
+          "src": "D01/frames/00008.jpg"
+        },
+        {
+          "time": 1.083317057,
+          "src": "D01/frames/00009.jpg"
+        },
+        {
+          "time": 1.166650391,
+          "src": "D01/frames/00010.jpg"
+        },
+        {
+          "time": 1.249983724,
+          "src": "D01/frames/00011.jpg"
+        },
+        {
+          "time": 1.333317057,
+          "src": "D01/frames/00012.jpg"
+        },
+        {
+          "time": 1.416650391,
+          "src": "D01/frames/00013.jpg"
+        },
+        {
+          "time": 1.499983724,
+          "src": "D01/frames/00014.jpg"
+        },
+        {
+          "time": 1.583317057,
+          "src": "D01/frames/00015.jpg"
+        },
+        {
+          "time": 1.666650391,
+          "src": "D01/frames/00016.jpg"
+        }
+      ],
+      "sheet": "D01/sequence.jpg",
+      "contact_sheet": "D01/contact.jpg"
+    },
+    {
+      "id": "D02",
+      "start": 2.35,
+      "end": 3.7,
+      "contact_time": 3.0,
+      "kind": "Moving illustration",
+      "observation": "Generated figure moving laterally; demonstration data, not evidence of a technique fault.",
+      "crop": [
+        0,
+        0,
+        384,
+        216
+      ],
+      "segment": "demo",
+      "frames": [
+        {
+          "time": 2.416650391,
+          "src": "D02/frames/00001.jpg"
+        },
+        {
+          "time": 2.499983724,
+          "src": "D02/frames/00002.jpg"
+        },
+        {
+          "time": 2.583317057,
+          "src": "D02/frames/00003.jpg"
+        },
+        {
+          "time": 2.666650391,
+          "src": "D02/frames/00004.jpg"
+        },
+        {
+          "time": 2.749983724,
+          "src": "D02/frames/00005.jpg"
+        },
+        {
+          "time": 2.833317057,
+          "src": "D02/frames/00006.jpg"
+        },
+        {
+          "time": 2.916650391,
+          "src": "D02/frames/00007.jpg"
+        },
+        {
+          "time": 2.999983724,
+          "src": "D02/frames/00008.jpg"
+        },
+        {
+          "time": 3.083317057,
+          "src": "D02/frames/00009.jpg"
+        },
+        {
+          "time": 3.166650391,
+          "src": "D02/frames/00010.jpg"
+        },
+        {
+          "time": 3.249983724,
+          "src": "D02/frames/00011.jpg"
+        },
+        {
+          "time": 3.333317057,
+          "src": "D02/frames/00012.jpg"
+        },
+        {
+          "time": 3.416650391,
+          "src": "D02/frames/00013.jpg"
+        },
+        {
+          "time": 3.499983724,
+          "src": "D02/frames/00014.jpg"
+        },
+        {
+          "time": 3.583317057,
+          "src": "D02/frames/00015.jpg"
+        },
+        {
+          "time": 3.666650391,
+          "src": "D02/frames/00016.jpg"
+        }
+      ],
+      "sheet": "D02/sequence.jpg",
+      "contact_sheet": "D02/contact.jpg"
+    }
+  ],
+  "validation": {
+    "window_count": 2,
+    "frame_count": 32,
+    "ordered_frames": true,
+    "cut_check": "checked"
+  },
+  "source_unchanged_stat": true
+}

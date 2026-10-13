@@ -1,0 +1,3 @@
+﻿id,start_seconds,end_seconds,contact_estimate_seconds,kind,observation,confidence,segment
+D01,0.35,1.7,1.0,Stationary illustration,"Generated figure near a fixed location; illustrative contact time, not a measured hit.",,demo
+D02,2.35,3.7,3.0,Moving illustration,"Generated figure moving laterally; demonstration data, not evidence of a technique fault.",,demo

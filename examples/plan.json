@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "title": "Tennis stroke review",
+  "language": "en",
+  "profile": {"experience_months": 3},
+  "windows": [
+    {
+      "id": "S01",
+      "start": 2.0,
+      "end": 6.5,
+      "contact_time": null,
+      "kind": "Forehand",
+      "observation": "Inspect the actual video before completing this field.",
+      "confidence": "unreviewed"
+    },
+    {
+      "id": "S02",
+      "start": 10.0,
+      "end": 14.5,
+      "contact_time": null,
+      "kind": "Moving shot",
+      "observation": "Keep the player, racket and feet visible throughout the window.",
+      "confidence": "unreviewed"
+    }
+  ]
+}

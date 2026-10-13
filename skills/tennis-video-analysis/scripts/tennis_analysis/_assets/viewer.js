@@ -2,10 +2,9 @@
 const data = JSON.parse(document.getElementById("evidence-data").textContent);
 const messages = {
   zh: {
-    subtitle:
-      "把准备、触球、随挥和回收连起来看。具体观察与练习建议在下方报告，连续帧用于核对动作依据。",
+    subtitle: "逐帧查看准备、触球、随挥和回收，结合连续画面对照动作。",
     sourcePreserved: "原视频与音轨保持原文件",
-    readReport: "阅读完整分析",
+    readReport: "完整分析报告",
     seeEvidence: "连续帧对比",
     print: "打印报告",
     contents: "报告目录",
@@ -19,7 +18,7 @@ const messages = {
     seek: "在原视频看这段",
     prev: "← 上一帧",
     next: "下一帧 →",
-    play: "慢速回看",
+    play: "慢速连续回看",
     pause: "暂停",
     prepare: "准备附近",
     contact: "触球附近",
@@ -48,7 +47,7 @@ const messages = {
   },
   en: {
     subtitle:
-      "Follow preparation, contact, follow-through and recovery in time. Read the full review below and use continuous frames to verify the evidence.",
+      "Compare preparation, contact, follow-through and recovery in consecutive frames.",
     sourcePreserved: "Source video and audio remain unchanged",
     readReport: "Read full review",
     seeEvidence: "Continuous frame comparison",
@@ -100,6 +99,12 @@ const text = messages[data.language] || messages.en;
 const $ = (id) => document.getElementById(id);
 document.querySelectorAll("[data-i18n]").forEach((el) => {
   el.textContent = text[el.dataset.i18n] || el.dataset.i18n;
+});
+if (!$("intro").textContent.trim()) $("intro").textContent = text.subtitle;
+document.querySelectorAll('a[href="#report"]').forEach((link) => {
+  link.addEventListener("click", () => {
+    $("report").open = true;
+  });
 });
 $("scope").textContent =
   `${data.validation.window_count} ${text.windows} · ${data.validation.frame_count} ${text.frames}`;
@@ -276,13 +281,19 @@ document.addEventListener("keydown", (e) => {
     e.preventDefault();
     advance(1);
   }
-  if (e.code === "Space" && document.activeElement.tagName !== "BUTTON") {
+  if (
+    e.code === "Space" &&
+    !["BUTTON", "SUMMARY", "A", "VIDEO"].includes(
+      document.activeElement.tagName,
+    )
+  ) {
     e.preventDefault();
     $("play").click();
   }
 });
 $("print").addEventListener("click", () => {
   stop();
+  $("report").open = true;
   window.print();
 });
 const video = $("video"),

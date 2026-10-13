@@ -1,11 +1,14 @@
 """Build a portable skill ZIP with license, without runtime caches or private data."""
 import argparse
+import sys
 import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "skills" / "tennis-video-analysis" / "scripts"))
+from tennis_analysis import __version__
 parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument("--output", type=Path, default=ROOT / "dist" / "tennis-video-analysis-0.1.0.zip")
+parser.add_argument("--output", type=Path, default=ROOT / "dist" / f"tennis-video-analysis-{__version__}.zip")
 args = parser.parse_args()
 output = args.output.resolve()
 source = ROOT / "skills" / "tennis-video-analysis"

@@ -96,6 +96,9 @@ def extract(video: Path, plan: dict, output: Path, image_format: str = "jpg") ->
                 "profile": plan.get("profile", {}), "media": metadata,
                 "cut_check": "checked" if plan.get("continuous_segments") else "not_checked",
                 "continuous_segments": plan.get("continuous_segments", []), "windows": []}
+    for key in ("intro", "summary_cards", "comparison_images", "default_comparison"):
+        if key in plan:
+            manifest[key] = plan[key]
     for item in plan["windows"]:
         w = dict(item)
         folder = output / w["id"] / "frames"

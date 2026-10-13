@@ -35,8 +35,9 @@ frames near estimated contact. Update `contact_time`, optional `contact_range`,
 `observation` and `confidence` in the manifest. `null` contacts remain explicit
 in the viewer. Keep observations separate from proposed explanations and drills.
 
-Use the optional report-writing guide in the skill's `assets/`. The HTML embeds
-the full written report rather than linking only to a separate text summary.
+Use the optional report-writing guide in the skill's `assets/`. The HTML opens
+with the compact continuous-frame comparison. The complete written review is
+embedded in an expandable section below the viewer and source-video player.
 For later corrections, update the Markdown/manifest and render with `--overwrite`.
 
 先看整段动作，再核对触球附近相邻帧。修正的是观察和估计，不能把拍摄角度

@@ -21,6 +21,8 @@ def test_render_safe_json_and_portable_image_paths(tmp_path):
     Image.new("RGB", (16, 16)).save(root / "frame.jpg")
     manifest = {"version": 1, "title": "Review", "language": "en", "windows": [{"id": "S01", "start": 0, "end": 1,
                 "contact_time": 0.4, "observation": '</script><script>alert("x")</script>', "frames": [{"time": 0.4, "src": "frame.jpg"}]}]}
+    manifest["summary_cards"] = [{"title": '<img src=x onerror="alert(1)">', "text": "A < B"}]
+    manifest["comparison_images"] = [{"src": "frame.jpg", "alt": '" onload="alert(1)'}]
     save_json(root / "manifest.json", manifest)
     report = tmp_path / "report.md"
     report.write_text("# Evidence\n\n![frame](证据/frame.jpg)", encoding="utf-8")
@@ -29,6 +31,8 @@ def test_render_safe_json_and_portable_image_paths(tmp_path):
     assert "\\u003c/script\\u003e" in page
     assert "alert(\"x\")</script>" not in page
     assert "%E8%AF%81%E6%8D%AE/frame.jpg" in page
+    assert '<img src=x onerror="alert(1)">' not in page
+    assert "A &lt; B" in page
     assert "@@REPORT@@" not in page
     with pytest.raises(FileExistsError):
         render(root / "manifest.json", report, output)

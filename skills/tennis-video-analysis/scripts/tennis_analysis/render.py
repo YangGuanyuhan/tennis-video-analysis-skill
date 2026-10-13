@@ -11,7 +11,7 @@ from urllib.parse import quote, unquote, urlsplit
 
 from markdown_it import MarkdownIt
 
-from .model import load_json, validate_manifest
+from .model import load_json, relative_path, validate_manifest
 
 
 def local_uri(target: Path, base: Path) -> str:
@@ -75,6 +75,24 @@ def render(manifest_path: Path, report_path: Path, output: Path, video: Path | N
         language = "zh"
     payload = {"windows": windows, "validation": validation, "media": data.get("media", {}), "language": language,
                "default_comparison": data.get("default_comparison", [])}
+    supplement = []
+    cards = data.get("summary_cards", [])
+    if cards:
+        card_html = "".join('<div class="tip"><strong>' + html.escape(str(c.get("title", ""))) + '</strong>' +
+                            html.escape(str(c.get("text", ""))) + '</div>' for c in cards)
+        heading = ("练球时先记住这三件事" if len(cards) == 3 else "练球要点") if language == "zh" else "Practice priorities"
+        supplement.append('<section class="card"><h2>' + heading + '</h2><div class="tips">' + card_html + '</div></section>')
+    boards = []
+    root = manifest_path.parent.resolve()
+    for item in data.get("comparison_images", []):
+        target = (root / relative_path(item["src"])).resolve()
+        if not target.is_relative_to(root) or not target.is_file():
+            raise ValueError("Missing or unsafe comparison image")
+        boards.append('<img src="' + html.escape(local_uri(target, output.parent), quote=True) + '" alt="' +
+                      html.escape(str(item.get("alt", "")), quote=True) + '">')
+    if boards:
+        heading = "关键阶段对照" if language == "zh" else "Key phase comparisons"
+        supplement.append('<section class="card boards"><h2>' + heading + '</h2>' + "".join(boards) + '</section>')
     # Escape HTML script terminators even when notes contain hostile strings.
     encoded = json.dumps(payload, ensure_ascii=False, allow_nan=False).replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026")
     assets = files("tennis_analysis").joinpath("_assets")
@@ -83,7 +101,8 @@ def render(manifest_path: Path, report_path: Path, output: Path, video: Path | N
               "CSS": assets.joinpath("report.css").read_text(encoding="utf-8"),
               "JS": assets.joinpath("viewer.js").read_text(encoding="utf-8"), "DATA": encoded,
               "REPORT": report, "TOC": toc, "VIDEO": html.escape(local_uri(Path(video), output.parent), quote=True) if video else "",
-              "MARKDOWN": html.escape(local_uri(report_path, output.parent), quote=True)}
+              "MARKDOWN": html.escape(local_uri(report_path, output.parent), quote=True),
+              "INTRO": html.escape(str(data.get("intro", ""))), "SUPPLEMENT": "".join(supplement)}
     page = re.sub(r"@@([A-Z]+)@@", lambda m: values[m[1]], template)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(page, encoding="utf-8")

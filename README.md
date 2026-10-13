@@ -19,7 +19,7 @@ Tools extract and present media. An agent or coach must visually review it and w
 - A self-contained `tennis-video-analysis` skill with evidence standards, coaching references and executable helpers.
 - Metadata and sparse scouting sheets, followed by consecutive actual frames with presentation timestamps, including variable frame rates.
 - Known montage intervals reject cross-cut windows; unchecked continuity is labeled explicitly.
-- One HTML page combines the complete Markdown report, contents, side-by-side frame stepping, contact-relative alignment, slow review and original-video playback.
+- The original compact HTML layout puts side-by-side frame comparison first, with contact-relative alignment, slow review and original-video playback. Expand the complete Markdown analysis below when needed.
 - Chinese/English interfaces, Unicode paths, CSV observations and an optional byte-range server for large-video seeking.
 - Read-only source media. Screenshot crops retain their dimensions; scaled sheets and JPEG previews do not modify source quality, frame rate or audio.
 

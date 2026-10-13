@@ -53,7 +53,9 @@ python -X utf8 <skill-directory>/scripts/analyze.py validate <manifest.json>
 python -X utf8 <skill-directory>/scripts/analyze.py render --manifest <manifest.json> --report <report.md> --video <video> --output <report.html>
 ```
 
-HTML combines the complete review with interactive frame comparison. Data, CSS and JavaScript are embedded; images and original video remain linked files. Keep the layout intact. Use `--overwrite` for an intentional revision of an existing report.
+By default, use the original compact comparison-first layout: a small heading, then full-width side-by-side continuous frames and playback controls. Keep the complete written review in the expandable section below; it must not precede the viewer. Optional `intro`, `summary_cards` and `comparison_images` carry footage-specific short guidance and phase boards after the viewer. Follow an explicit request for another layout when given.
+
+Data, CSS and JavaScript are embedded; images and original video remain linked files. Keep the layout intact. Use `--overwrite` for an intentional revision of an existing report.
 
 Original playback reads the source file directly. Do not add music or replace audio. Still images have no sound. This analysis workflow does not produce edited long/highlight videos; if editing was separately requested, complete and verify that task too.
 

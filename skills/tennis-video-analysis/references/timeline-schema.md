@@ -28,6 +28,7 @@ Times are seconds on the input file's seek/playback timeline, not wall-clock tim
 - `continuous_segments`: optional, nonoverlapping verified intervals. A window must fit one interval. Do not claim a montage is continuous by declaring a whole-video interval.
 - `language`: `zh` or `en`, for the interface. The report retains its written language.
 - Notes and profile are human-authored context, not automated scores.
+- Optional presentation fields: `intro` (brief text), `summary_cards` (`title`/`text` objects), and `comparison_images` (`src`/`alt` objects referencing local images beside the manifest). These appear around or after the primary frame viewer; the full written report expands below. Image references must exist when rendering.
 
 ## Manifest
 

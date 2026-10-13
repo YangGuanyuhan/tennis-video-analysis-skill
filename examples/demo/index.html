@@ -1,255 +1,59 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,"><title>Tennis Video Analysis · Synthetic Demo</title><style>:root {
-  --ink: #173b37;
-  --muted: #566e68;
-  --accent: #166b56;
-  --line: #dce5de;
-  --paper: #f3f5ef;
-  --highlight: #e0eaa0;
   color-scheme: light;
+  --ink: #16333d;
+  --muted: #526874;
+  --accent: #00685e;
 }
 * {
   box-sizing: border-box;
 }
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 22px;
-}
 body {
   margin: 0;
-  background: var(--paper);
+  background: #f1f5f6;
   color: var(--ink);
   font:
-    16px/1.8 "Microsoft YaHei",
+    16px/1.65 "Microsoft YaHei",
     system-ui,
-    -apple-system,
     sans-serif;
 }
-.wrap {
-  max-width: 1460px;
+main {
+  max-width: 1500px;
   margin: auto;
-  padding: 0 32px;
+  padding: 26px;
+}
+h1 {
+  font-size: 28px;
+  margin: 0 0 8px;
+}
+h2 {
+  font-size: 22px;
+  margin: 0 0 14px;
+}
+p {
+  margin: 8px 0 14px;
 }
 a {
   color: var(--accent);
-  text-underline-offset: 3px;
-}
-button,
-select,
-input {
-  font: inherit;
-}
-button {
-  cursor: pointer;
-}
-button:disabled {
-  opacity: 0.45;
-  cursor: default;
-}
-.hero {
-  background: var(--ink);
-  color: #fff;
-  padding: 45px 0 38px;
-  background-image: linear-gradient(120deg, transparent 72%, #ffffff06 72%);
-}
-.eyebrow,
-.section-kicker {
-  font:
-    12px/1.5 Consolas,
-    monospace;
-  letter-spacing: 2px;
-}
-.eyebrow {
-  color: var(--highlight);
-}
-h1 {
-  font-size: clamp(29px, 4vw, 44px);
-  line-height: 1.3;
-  margin: 13px 0 15px;
-  letter-spacing: -0.6px;
-}
-.hero p {
-  max-width: 940px;
-  color: #e0ebe3;
-  margin: 0 0 18px;
-}
-.badges {
-  display: flex;
-  gap: 9px;
-  flex-wrap: wrap;
-  font-size: 13px;
-}
-.badges span {
-  border: 1px solid #ffffff38;
-  border-radius: 30px;
-  padding: 4px 13px;
-}
-.actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 24px;
-}
-.actions a,
-.actions button {
-  font: inherit;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.5;
-  text-decoration: none;
-  border: 1px solid var(--highlight);
-  background: var(--highlight);
-  color: var(--ink);
-  padding: 10px 18px;
-  border-radius: 7px;
-}
-.actions .outline {
-  background: transparent;
-  color: white;
-  border-color: #ffffff52;
-}
-.layout {
-  display: grid;
-  grid-template-columns: 224px minmax(0, 1fr);
-  gap: 25px;
-  padding-top: 28px;
-  padding-bottom: 36px;
-}
-.navigation {
-  position: sticky;
-  top: 24px;
-}
-.navigation strong {
-  font-size: 13px;
-  color: var(--muted);
-}
-nav {
-  margin: 10px 0 20px;
-  max-height: 72vh;
-  overflow-y: auto;
-}
-nav a {
-  display: block;
-  font-size: 13px;
-  line-height: 1.65;
-  text-decoration: none;
-  padding: 6px 12px;
-  border-left: 2px solid var(--line);
-}
-nav a:hover {
-  background: #e4ebdf;
-  border-left-color: var(--accent);
-}
-nav .toc-h1 {
-  font-weight: 650;
-}
-nav .toc-h3 {
-  padding-left: 22px;
-  font-size: 12px;
-}
-.download {
-  font-size: 13px;
 }
 .card {
   background: white;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 30px;
-  margin-bottom: 24px;
-  min-width: 0;
+  border: 1px solid #d8e2e5;
+  border-radius: 14px;
+  padding: 22px;
+  margin-top: 20px;
 }
-h2 {
-  font-size: 24px;
-  line-height: 1.5;
-  margin: 8px 0 16px;
-}
-h3 {
-  font-size: 19px;
-  line-height: 1.6;
-  margin: 23px 0 10px;
-}
-.prose h1 {
-  font-size: 29px;
-  margin-top: 0;
-}
-.prose h2 {
-  margin-top: 36px;
-  padding-top: 18px;
-  border-top: 1px solid var(--line);
-}
-.prose p {
-  margin: 14px 0;
-}
-.prose img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 7px;
-}
-.prose ul,
-.prose ol {
-  padding-left: 25px;
-}
-.prose li {
-  padding-left: 3px;
-  margin: 7px 0;
-}
-.prose strong {
-  font-weight: 650;
-  color: #145344;
-}
-.prose blockquote {
-  border-left: 3px solid #91b99d;
-  background: #f0f6ee;
-  padding: 6px 20px;
-  margin: 18px 0;
-}
-.prose code {
-  font:
-    13px/1.7 Consolas,
-    monospace;
-  overflow-wrap: anywhere;
-  background: #edf3ee;
-  padding: 2px 5px;
-  border-radius: 4px;
-}
-.prose pre {
-  padding: 16px;
-  background: #f1f5f1;
-  border-radius: 8px;
-  overflow: auto;
-}
-.prose pre code {
-  padding: 0;
-}
-.prose table {
-  border-collapse: collapse;
-  width: 100%;
-  font-size: 14px;
-  line-height: 1.75;
-  margin: 20px 0;
-}
-.prose th,
-.prose td {
-  text-align: left;
-  border: 1px solid var(--line);
-  padding: 11px 12px;
-  vertical-align: top;
-}
-.prose th {
-  background: #eaf1e6;
-  color: #254b3b;
-  font-weight: 650;
-}
-.prose tr:nth-child(even) td {
-  background: #f8faf6;
-}
-.section-kicker {
-  color: var(--accent);
+.lede {
+  max-width: 1100px;
 }
 .muted {
   color: var(--muted);
-  font-size: 13px;
-  line-height: 1.8;
+  font-size: 14px;
+}
+.toplinks {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 .panels {
   display: grid;
@@ -260,26 +64,25 @@ h3 {
   min-width: 0;
 }
 .panel label {
-  font-weight: 600;
   display: block;
-  margin: 4px 0 7px;
-  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 select {
   width: 100%;
-  border: 1px solid #b8cec0;
+  padding: 10px;
+  border: 1px solid #b7c9cf;
+  border-radius: 8px;
   background: white;
   color: var(--ink);
-  padding: 9px;
-  border-radius: 7px;
-  font-size: 14px;
+  font: inherit;
 }
 figure {
-  margin: 12px 0;
+  margin: 12px 0 0;
 }
 .imagebox {
+  background: #0e2027;
   aspect-ratio: 8/5;
-  background: #112b24;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -291,161 +94,213 @@ figure {
   max-height: 100%;
   object-fit: contain;
 }
-figcaption,
-.status {
+figcaption {
   font:
-    12px/1.7 Consolas,
+    14px/1.5 Consolas,
     "Microsoft YaHei",
     monospace;
-  margin-top: 8px;
+  padding-top: 8px;
 }
 .note {
-  font-size: 13px;
-  line-height: 1.8;
-  min-height: 74px;
-}
-.links {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-  flex-wrap: wrap;
-  font-size: 13px;
+  min-height: 82px;
+  margin: 10px 0 0;
+  font-size: 14px;
 }
 .tools {
   display: flex;
-  gap: 8px;
+  align-items: center;
+  gap: 10px;
   flex-wrap: wrap;
-  margin: 20px 0 13px;
+  margin: 18px 0 12px;
 }
-.tools button,
-.links button {
-  border: 1px solid #bed0bf;
+button {
+  border: 1px solid #aac4c7;
+  background: #fff;
+  padding: 8px 14px;
   color: var(--ink);
-  background: white;
-  border-radius: 7px;
-  padding: 7px 10px;
-  font-size: 13px;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
 }
-.tools button:hover,
-.links button:hover {
-  background: #edf5e8;
+button:hover {
+  background: #e9f5f3;
 }
-.tools button.primary {
+button.primary {
   background: var(--accent);
-  border-color: var(--accent);
   color: white;
+  border-color: var(--accent);
+}
+button:disabled {
+  opacity: 0.4;
+  cursor: default;
 }
 input[type="range"] {
   width: 100%;
   accent-color: var(--accent);
 }
+.status {
+  font-family: Consolas, "Microsoft YaHei", monospace;
+}
+.tips {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+.tip {
+  padding: 16px;
+  background: #eff7f5;
+  border-radius: 10px;
+}
+.tip strong {
+  display: block;
+  margin-bottom: 5px;
+}
+.boards img {
+  max-width: 100%;
+  display: block;
+  margin: 15px 0;
+}
 video {
   width: 100%;
-  max-height: 70vh;
-  background: #112b24;
+  max-height: 65vh;
+  background: #0e2027;
   border-radius: 8px;
-  display: block;
-  margin: 17px 0;
 }
 .warning {
-  font-size: 13px;
-  color: #805b19;
-}
-footer {
-  text-align: center;
-  color: var(--muted);
-  font-size: 12px;
-  padding: 12px;
+  color: #875b17;
 }
 .sr {
   position: absolute;
   left: -9999px;
 }
-[hidden] {
-  display: none !important;
-}
-:focus-visible {
-  outline: 3px solid #88b341;
-  outline-offset: 3px;
-}
-@media (max-width: 1100px) {
-  .layout {
-    grid-template-columns: 1fr;
+@media (max-width: 900px) {
+  main {
+    padding: 14px;
   }
-  aside {
-    display: none;
-  }
-  .wrap {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-@media (max-width: 720px) {
-  body {
-    font-size: 15px;
-  }
-  .hero {
-    padding: 30px 0;
-  }
-  .wrap {
-    padding-left: 13px;
-    padding-right: 13px;
-  }
-  .card {
-    padding: 19px;
-  }
-  .panels {
+  .panels,
+  .tips {
     grid-template-columns: 1fr;
   }
   .note {
     min-height: 0;
   }
+  .card {
+    padding: 16px;
+  }
+  h1 {
+    font-size: 23px;
+  }
+}
+
+.links {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+.evidence-meta {
+  margin-top: -6px;
+}
+.prose img {
+  max-width: 100%;
+  height: auto;
+}
+.prose h1 {
+  font-size: 26px;
+  margin: 24px 0 12px;
+}
+.prose h2 {
+  margin: 28px 0 12px;
+}
+.prose h3 {
+  font-size: 19px;
+  margin: 22px 0 8px;
+}
+.prose li {
+  margin: 7px 0;
+}
+.prose table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 14px;
+  margin: 20px 0;
+}
+.prose th,
+.prose td {
+  border: 1px solid #d8e2e5;
+  padding: 10px;
+  text-align: left;
+  vertical-align: top;
+}
+.prose th {
+  background: #eef6f5;
+}
+.prose pre {
+  overflow: auto;
+  padding: 14px;
+  background: #f1f5f6;
+}
+.prose code {
+  font-family: Consolas, monospace;
+  overflow-wrap: anywhere;
+}
+summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 20px;
+}
+.report-toc {
+  margin: 16px 0;
+}
+.report-toc a {
+  display: block;
+  padding: 3px 0;
+  font-size: 14px;
+}
+.report-toc .toc-h3 {
+  padding-left: 14px;
+}
+footer {
+  text-align: center;
+  margin: 24px 0 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+[hidden] {
+  display: none !important;
+}
+:focus-visible {
+  outline: 3px solid #55a39b;
+  outline-offset: 3px;
+}
+@media (max-width: 900px) {
   .prose table {
     display: block;
     overflow: auto;
   }
-  .prose h2 {
-    font-size: 22px;
-  }
-  .badges {
-    font-size: 12px;
-  }
 }
 @media print {
-  body {
-    background: white;
-    font-size: 11pt;
-  }
-  .hero {
-    background: white;
-    color: #173b37;
-    padding: 0;
-  }
-  .hero p {
-    color: #526854;
-  }
-  .actions,
-  .badges,
-  aside,
-  .tools,
-  .links,
-  input[type="range"],
+  header,
+  #viewer,
   #original,
-  footer {
+  .tips,
+  .boards,
+  .report-toc,
+  footer,
+  summary {
     display: none !important;
   }
-  .layout {
-    display: block;
-    padding: 0;
+  body {
+    background: white;
   }
-  .wrap {
+  main {
     padding: 0;
     max-width: none;
   }
   .card {
-    padding: 0;
     border: none;
-    border-radius: 0;
+    padding: 0;
   }
   .prose h2 {
     break-after: avoid;
@@ -453,24 +308,21 @@ footer {
   .prose tr {
     break-inside: avoid;
   }
-  a {
-    color: inherit;
-  }
-  video {
-    display: none;
-  }
-  .panels {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
 }
 </style></head>
-<body><header class="hero"><div class="wrap"><div class="eyebrow">TENNIS / CONTINUOUS FRAME REVIEW</div><h1>Tennis Video Analysis · Synthetic Demo</h1><p data-i18n="subtitle"></p><div class="badges"><span id="scope"></span><span id="continuity"></span><span data-i18n="sourcePreserved"></span></div><div class="actions"><a href="#report" data-i18n="readReport"></a><a href="#viewer" class="outline" data-i18n="seeEvidence"></a><button id="print" class="outline" data-i18n="print"></button></div></div></header>
-<div class="layout wrap"><aside><div class="navigation"><strong data-i18n="contents"></strong><nav aria-label="Report contents"><a class="toc-h1" href="#chapter-1">Synthetic example / 示意案例</a>
+<body><main>
+<header><h1>Tennis Video Analysis · Synthetic Demo</h1><p class="lede" id="intro"></p><div class="toplinks"><a href="#report" data-i18n="readReport"></a><a href="report.md" data-i18n="markdown"></a><a href="#original" data-i18n="original"></a><button id="print" data-i18n="print"></button></div></header>
+<section class="card" id="viewer"><h2 data-i18n="seeEvidence"></h2><p class="muted" data-i18n="comparisonNote"></p><p class="muted evidence-meta"><span id="scope"></span> · <span id="continuity"></span></p><div class="panels">
+<div class="panel"><label for="leftSelect" data-i18n="left"></label><select id="leftSelect"></select><figure><div class="imagebox"><img id="leftImg" alt="Left original video frame"></div><figcaption id="leftStamp"></figcaption></figure><p id="leftNote" class="note"></p><div class="links"><a id="leftFull" target="_blank" rel="noopener" data-i18n="enlarge"></a><a id="leftSheet" target="_blank" rel="noopener" data-i18n="sheet"></a><button id="leftVideo" data-i18n="seek"></button></div></div>
+<div class="panel"><label for="rightSelect" data-i18n="right"></label><select id="rightSelect"></select><figure><div class="imagebox"><img id="rightImg" alt="Right original video frame"></div><figcaption id="rightStamp"></figcaption></figure><p id="rightNote" class="note"></p><div class="links"><a id="rightFull" target="_blank" rel="noopener" data-i18n="enlarge"></a><a id="rightSheet" target="_blank" rel="noopener" data-i18n="sheet"></a><button id="rightVideo" data-i18n="seek"></button></div></div></div>
+<div class="tools"><button id="prev" data-i18n="prev"></button><button id="play" class="primary" data-i18n="play"></button><button id="next" data-i18n="next"></button><button data-offset="-0.65" data-i18n="prepare"></button><button data-offset="0" data-i18n="contact"></button><button data-offset="0.25" data-i18n="follow"></button><button data-offset="0.85" data-i18n="recover"></button><button id="swap" data-i18n="swap"></button></div>
+<label class="sr" for="timeline" data-i18n="timeline"></label><input id="timeline" type="range" min="0" value="0" step="1"><div id="status" class="status" aria-live="polite"></div><p class="muted" data-i18n="keys"></p><p class="warning" id="imageError" hidden data-i18n="imageError"></p></section>
+
+<section class="card" id="original"><h2 data-i18n="original"></h2><p class="muted" data-i18n="audioNote"></p><video id="video" controls preload="none" data-source="synthetic.mp4"></video><a id="originalLink" data-i18n="openVideo"></a><p id="videoError" hidden class="warning" data-i18n="videoError"></p></section>
+<details class="card" id="report"><summary data-i18n="readReport"></summary><nav class="report-toc" aria-label="Report contents"><a class="toc-h1" href="#chapter-1">Synthetic example / 示意案例</a>
 <a class="toc-h2" href="#chapter-2">Observation / 画面观察</a>
 <a class="toc-h2" href="#chapter-3">A real review / 真实分析应如何写</a>
-<a class="toc-h2" href="#chapter-4">Limits / 限制</a><a href="#viewer" data-i18n="seeEvidence"></a><a href="#original" data-i18n="original"></a></nav><a href="report.md" class="download" data-i18n="markdown"></a></div></aside>
-<main><article id="report" class="card prose"><h1 id="chapter-1">Synthetic example / 示意案例</h1>
+<a class="toc-h2" href="#chapter-4">Limits / 限制</a></nav><article class="prose"><h1 id="chapter-1">Synthetic example / 示意案例</h1>
 <p><strong>These generated drawings demonstrate the review interface. They are not real tennis footage and do not support a coaching diagnosis.</strong></p>
 <p>这些画面由程序绘制，用于展示报告、连续帧和原视频定位，不是对真实球员的动作评价。音轨为生成的示意音。</p>
 <h2 id="chapter-2">Observation / 画面观察</h2>
@@ -496,22 +348,15 @@ footer {
 </table>
 <h2 id="chapter-4">Limits / 限制</h2>
 <p>The software extracts and presents evidence. An agent or coach must inspect the footage and write observations; no pose score or automated fault diagnosis is generated.</p>
-</article>
-<section class="card" id="viewer"><div class="section-kicker">FRAME EVIDENCE</div><h2 data-i18n="seeEvidence"></h2><p class="muted" data-i18n="comparisonNote"></p><div class="panels">
-<div class="panel"><label for="leftSelect" data-i18n="left"></label><select id="leftSelect"></select><figure><div class="imagebox"><img id="leftImg" alt="Left original video frame"></div><figcaption id="leftStamp"></figcaption></figure><p id="leftNote" class="note"></p><div class="links"><a id="leftFull" target="_blank" rel="noopener" data-i18n="enlarge"></a><a id="leftSheet" target="_blank" rel="noopener" data-i18n="sheet"></a><button id="leftVideo" data-i18n="seek"></button></div></div>
-<div class="panel"><label for="rightSelect" data-i18n="right"></label><select id="rightSelect"></select><figure><div class="imagebox"><img id="rightImg" alt="Right original video frame"></div><figcaption id="rightStamp"></figcaption></figure><p id="rightNote" class="note"></p><div class="links"><a id="rightFull" target="_blank" rel="noopener" data-i18n="enlarge"></a><a id="rightSheet" target="_blank" rel="noopener" data-i18n="sheet"></a><button id="rightVideo" data-i18n="seek"></button></div></div></div>
-<div class="tools"><button id="prev" data-i18n="prev"></button><button id="play" class="primary" data-i18n="play"></button><button id="next" data-i18n="next"></button><button data-offset="-0.65" data-i18n="prepare"></button><button data-offset="0" data-i18n="contact"></button><button data-offset="0.25" data-i18n="follow"></button><button data-offset="0.85" data-i18n="recover"></button><button id="swap" data-i18n="swap"></button></div>
-<label class="sr" for="timeline" data-i18n="timeline"></label><input id="timeline" type="range" min="0" value="0" step="1"><div id="status" class="status" aria-live="polite"></div><p class="muted" data-i18n="keys"></p><p class="warning" id="imageError" hidden data-i18n="imageError"></p></section>
-<section class="card" id="original"><div class="section-kicker">SOURCE VIDEO</div><h2 data-i18n="original"></h2><p class="muted" data-i18n="audioNote"></p><video id="video" controls preload="none" data-source="synthetic.mp4"></video><a id="originalLink" data-i18n="openVideo"></a><p id="videoError" hidden class="warning" data-i18n="videoError"></p></section>
-<footer>Tennis Video Analysis · <span data-i18n="footer"></span></footer></main></div>
+</article></details>
+<footer>Tennis Video Analysis · <span data-i18n="footer"></span></footer></main>
 <script id="evidence-data" type="application/json">{"windows": [{"id": "D01", "start": 0.35, "end": 1.7, "contact_time": 1.0, "kind": "Stationary illustration", "observation": "Generated figure near a fixed location; illustrative contact time, not a measured hit.", "crop": [0, 0, 384, 216], "segment": "demo", "frames": [{"time": 0.416650391, "src": "evidence/D01/frames/00001.jpg"}, {"time": 0.499983724, "src": "evidence/D01/frames/00002.jpg"}, {"time": 0.583317057, "src": "evidence/D01/frames/00003.jpg"}, {"time": 0.666650391, "src": "evidence/D01/frames/00004.jpg"}, {"time": 0.749983724, "src": "evidence/D01/frames/00005.jpg"}, {"time": 0.833317057, "src": "evidence/D01/frames/00006.jpg"}, {"time": 0.916650391, "src": "evidence/D01/frames/00007.jpg"}, {"time": 0.999983724, "src": "evidence/D01/frames/00008.jpg"}, {"time": 1.083317057, "src": "evidence/D01/frames/00009.jpg"}, {"time": 1.166650391, "src": "evidence/D01/frames/00010.jpg"}, {"time": 1.249983724, "src": "evidence/D01/frames/00011.jpg"}, {"time": 1.333317057, "src": "evidence/D01/frames/00012.jpg"}, {"time": 1.416650391, "src": "evidence/D01/frames/00013.jpg"}, {"time": 1.499983724, "src": "evidence/D01/frames/00014.jpg"}, {"time": 1.583317057, "src": "evidence/D01/frames/00015.jpg"}, {"time": 1.666650391, "src": "evidence/D01/frames/00016.jpg"}], "sheet": "evidence/D01/sequence.jpg", "contact_sheet": "evidence/D01/contact.jpg"}, {"id": "D02", "start": 2.35, "end": 3.7, "contact_time": 3.0, "kind": "Moving illustration", "observation": "Generated figure moving laterally; demonstration data, not evidence of a technique fault.", "crop": [0, 0, 384, 216], "segment": "demo", "frames": [{"time": 2.416650391, "src": "evidence/D02/frames/00001.jpg"}, {"time": 2.499983724, "src": "evidence/D02/frames/00002.jpg"}, {"time": 2.583317057, "src": "evidence/D02/frames/00003.jpg"}, {"time": 2.666650391, "src": "evidence/D02/frames/00004.jpg"}, {"time": 2.749983724, "src": "evidence/D02/frames/00005.jpg"}, {"time": 2.833317057, "src": "evidence/D02/frames/00006.jpg"}, {"time": 2.916650391, "src": "evidence/D02/frames/00007.jpg"}, {"time": 2.999983724, "src": "evidence/D02/frames/00008.jpg"}, {"time": 3.083317057, "src": "evidence/D02/frames/00009.jpg"}, {"time": 3.166650391, "src": "evidence/D02/frames/00010.jpg"}, {"time": 3.249983724, "src": "evidence/D02/frames/00011.jpg"}, {"time": 3.333317057, "src": "evidence/D02/frames/00012.jpg"}, {"time": 3.416650391, "src": "evidence/D02/frames/00013.jpg"}, {"time": 3.499983724, "src": "evidence/D02/frames/00014.jpg"}, {"time": 3.583317057, "src": "evidence/D02/frames/00015.jpg"}, {"time": 3.666650391, "src": "evidence/D02/frames/00016.jpg"}], "sheet": "evidence/D02/sequence.jpg", "contact_sheet": "evidence/D02/contact.jpg"}], "validation": {"window_count": 2, "frame_count": 32, "ordered_frames": true, "cut_check": "checked"}, "media": {"name": "synthetic.mp4", "duration": 4.0, "width": 384, "height": 216, "codec": "h264", "nominal_fps": 12.0, "average_fps": 12.0, "rotation": 0, "pixel_format": "yuv420p", "audio": [{"codec": "aac", "sample_rate": "48000", "channels": 1}]}, "language": "en", "default_comparison": []}</script><script>"use strict";
 const data = JSON.parse(document.getElementById("evidence-data").textContent);
 const messages = {
   zh: {
-    subtitle:
-      "把准备、触球、随挥和回收连起来看。具体观察与练习建议在下方报告，连续帧用于核对动作依据。",
+    subtitle: "逐帧查看准备、触球、随挥和回收，结合连续画面对照动作。",
     sourcePreserved: "原视频与音轨保持原文件",
-    readReport: "阅读完整分析",
+    readReport: "完整分析报告",
     seeEvidence: "连续帧对比",
     print: "打印报告",
     contents: "报告目录",
@@ -525,7 +370,7 @@ const messages = {
     seek: "在原视频看这段",
     prev: "← 上一帧",
     next: "下一帧 →",
-    play: "慢速回看",
+    play: "慢速连续回看",
     pause: "暂停",
     prepare: "准备附近",
     contact: "触球附近",
@@ -554,7 +399,7 @@ const messages = {
   },
   en: {
     subtitle:
-      "Follow preparation, contact, follow-through and recovery in time. Read the full review below and use continuous frames to verify the evidence.",
+      "Compare preparation, contact, follow-through and recovery in consecutive frames.",
     sourcePreserved: "Source video and audio remain unchanged",
     readReport: "Read full review",
     seeEvidence: "Continuous frame comparison",
@@ -606,6 +451,12 @@ const text = messages[data.language] || messages.en;
 const $ = (id) => document.getElementById(id);
 document.querySelectorAll("[data-i18n]").forEach((el) => {
   el.textContent = text[el.dataset.i18n] || el.dataset.i18n;
+});
+if (!$("intro").textContent.trim()) $("intro").textContent = text.subtitle;
+document.querySelectorAll('a[href="#report"]').forEach((link) => {
+  link.addEventListener("click", () => {
+    $("report").open = true;
+  });
 });
 $("scope").textContent =
   `${data.validation.window_count} ${text.windows} · ${data.validation.frame_count} ${text.frames}`;
@@ -782,13 +633,19 @@ document.addEventListener("keydown", (e) => {
     e.preventDefault();
     advance(1);
   }
-  if (e.code === "Space" && document.activeElement.tagName !== "BUTTON") {
+  if (
+    e.code === "Space" &&
+    !["BUTTON", "SUMMARY", "A", "VIDEO"].includes(
+      document.activeElement.tagName,
+    )
+  ) {
     e.preventDefault();
     $("play").click();
   }
 });
 $("print").addEventListener("click", () => {
   stop();
+  $("report").open = true;
   window.print();
 });
 const video = $("video"),

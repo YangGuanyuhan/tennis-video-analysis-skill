@@ -56,7 +56,9 @@ def test_unknown_contact_is_supported_and_no_cuts_are_invented():
 
 def test_irregular_pts_are_retained():
     log = "config in time_base: 1/600\nn: 0 pts: 0 pts_time:0\nn: 1 pts: 10 pts_time:0.0166667\nn: 2 pts: 30 pts_time:0.05\nn: 3 pts: 40 pts_time:0.0666667"
-    assert parse_showinfo(log, 2, 3) == pytest.approx([2, 2 + 1 / 60, 2.05])
+    assert parse_showinfo(log, 2, 4) == pytest.approx([2, 2 + 1 / 60, 2.05, 2 + 1 / 15])
+    with pytest.raises(ValueError, match="mismatch"):
+        parse_showinfo(log, 2, 3)
     with pytest.raises(ValueError, match="mismatch"):
         parse_showinfo(log, 2, 5)
 

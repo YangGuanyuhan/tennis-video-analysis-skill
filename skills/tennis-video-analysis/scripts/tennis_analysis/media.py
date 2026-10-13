@@ -53,8 +53,8 @@ def parse_showinfo(log: str, start: float, file_count: int) -> list[float]:
     else:
         pts = re.findall(r"\bn:\s*\d+\s+pts:\s*\S+\s+pts_time:([\d.e+\-]+)", log)
         times = [round(start + float(t), 9) for t in pts]
-    # The filter may log one or two frames rejected by the output duration gate.
-    if not file_count or not 0 <= len(times) - file_count <= 2:
+    # trim runs before showinfo, so every logged frame must become one image.
+    if not file_count or len(times) != file_count:
         raise ValueError(f"FFmpeg frame/timestamp mismatch: {file_count} images, {len(times)} timestamps")
     return times[:file_count]
 
@@ -101,9 +101,10 @@ def extract(video: Path, plan: dict, output: Path, image_format: str = "jpg") ->
         folder = output / w["id"] / "frames"
         folder.mkdir(parents=True)
         x, y, cw, ch = w["crop"]
-        filters = f"crop={cw}:{ch}:{x}:{y}:exact=1,showinfo"
+        duration = w["end"] - w["start"]
+        filters = f"trim=start=0:end={duration},crop={cw}:{ch}:{x}:{y}:exact=1,showinfo"
         args = ["ffmpeg", "-n", "-nostdin", "-v", "info", "-threads", "2", "-ss", str(w["start"]),
-                "-i", str(source), "-t", str(w["end"] - w["start"]), "-map", "0:v:0", "-an", "-sn", "-dn",
+                "-i", str(source), "-map", "0:v:0", "-an", "-sn", "-dn",
                 "-vf", filters, "-fps_mode", "passthrough", "-threads", "1"]
         if image_format == "jpg":
             args += ["-q:v", "3"]

@@ -29,6 +29,10 @@ jobs:
         run: choco install ffmpeg --yes --no-progress
       - name: Install dependencies
         run: python -m pip install -e ".[dev]"
+      - name: Verify required media tools
+        run: |
+          ffmpeg -version
+          ffprobe -version
       - name: Check skill
         run: python tools/validate_skill.py
       - name: Check public bundle

@@ -35,7 +35,7 @@ Times are seconds on the input file's seek/playback timeline, not wall-clock tim
 
 `validate` checks finite increasing times, bounds, existing frame files, paths and declared cut verification. It does not establish visual completeness, correct subject selection, exact contact or audio synchrony.
 
-Extraction uses FFmpeg `showinfo` PTS ticks/time base and `-fps_mode passthrough`. The filter can log one or two trailing frames rejected by the output-duration gate; only saved images are indexed. Fractional seeks can round to a stream time-base tick. See [showinfo](https://ffmpeg.org/ffmpeg-filters.html#showinfo) and [FFmpeg options](https://ffmpeg.org/ffmpeg.html).
+Extraction uses `trim` before `showinfo`, PTS ticks/time base and `-fps_mode passthrough`. Every logged frame must correspond to one saved image. Filtering the interval before logging avoids version-dependent extra frames at an output-duration gate. Fractional seeks can round to a stream time-base tick. See [showinfo](https://ffmpeg.org/ffmpeg-filters.html#showinfo) and [FFmpeg options](https://ffmpeg.org/ffmpeg.html).
 
 ## Import old evidence
 
